@@ -4,11 +4,13 @@ Usage: python analysis.py <dataset_TNSM_06995_v2.csv>
 Writes figures/*.pdf and results.json next to this file. Fixed seeds, reproducible.
 """
 import json
+import os
 import sys
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
+os.environ.setdefault("SOURCE_DATE_EPOCH", "0")  # fixed PDF timestamp, so reruns give byte-identical figures
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
